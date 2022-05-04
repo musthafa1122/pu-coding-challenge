@@ -1,0 +1,18 @@
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible="false"
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [nzTrigger]="null"
+  >
+    <app-filter></app-filter>
+  </nz-sider>
+  <nz-layout>
+    <nz-content>
+      <div class="inner-content">
+        <app-table></app-table>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

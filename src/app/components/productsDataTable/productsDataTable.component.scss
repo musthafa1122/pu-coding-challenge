@@ -1,0 +1,18 @@
+.cdk-virtual-scroll-viewport {
+  height: 78vh !important;
+}
+
+tr > th,
+table > tbody > tr > td {
+  text-align: center !important;
+}
+
+thead > tr > th {
+  background-color: #001529 !important;
+  color: white !important;
+}
+
+.table-count {
+  float: right;
+  margin: 12px 0;
+}

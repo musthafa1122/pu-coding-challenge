@@ -1,0 +1,73 @@
+<form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+  <h2 class="mt">Filters</h2>
+  <div class="mt">
+    <span>Column Name</span>
+    <nz-select
+      formControlName="selectedColumns"
+      class="mt"
+      nzMode="multiple"
+      nzPlaceHolder="Select columns"
+      nzSize="default"
+      [nzMaxTagCount]="2"
+      [nzMaxTagPlaceholder]="tagPlaceHolder"
+    >
+      <nz-option
+        *ngFor="let option of productsDataState?.productsDataHeaders"
+        [nzLabel]="option"
+        [nzValue]="option"
+      ></nz-option>
+    </nz-select>
+  </div>
+  <div class="mt">
+    <span>Operator</span>
+
+    <nz-select
+      formControlName="selectedOperators"
+      class="mt"
+      nzMode="multiple"
+      nzPlaceHolder="Select operators"
+      nzSize="default"
+      [nzMaxTagCount]="2"
+      [nzMaxTagPlaceholder]="tagPlaceHolder"
+    >
+      <nz-option
+        *ngFor="let option of operators"
+        [nzLabel]="option.label"
+        [nzValue]="option.value"
+      ></nz-option>
+    </nz-select>
+  </div>
+  <div class="mt">
+    <span> Value</span>
+    <input
+      formControlName="textValue"
+      class="mt"
+      nz-input
+      placeholder="Type a text"
+    />
+  </div>
+  <button
+    class="mt_apply"
+    type="submit"
+    nz-button
+    nzBlock
+    nzType="primary"
+    [disabled]="!filterForm?.valid"
+  >
+    Apply
+  </button>
+  <button
+    class="mt"
+    nz-button
+    nzType="primary"
+    type="button"
+    nzDanger
+    nzBlock
+    (click)="clearFilter()"
+  >
+    Clear
+  </button>
+  <ng-template #tagPlaceHolder let-selectedList
+    >and {{ selectedList.length }} more selected</ng-template
+  >
+</form>

@@ -1,0 +1,51 @@
+
+// Custom Theming for NG-ZORRO
+// For more information: https://ng.ant.design/docs/customize-theme/en
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
+
+// Override less variables to here
+// View all variables: https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/style/themes/default.less
+
+// @primary-color: #1890ff;
+// Some docs regarding theming with antd
+// https://ant.design/docs/react/customize-theme
+// https://ng.ant.design/docs/customize-theme/en
+// All less variables of antd can be found in: https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
+
+// -------- import official less file -----------
+@import '../node_modules/ng-zorro-antd/ng-zorro-antd.less';
+
+// -------- override less var -----------
+@primary-color: #0045a5;
+
+@border-radius-base: 0.4rem;
+
+// Switch
+// ---
+@switch-color: @primary-color;
+@steps-background: #fff;
+
+// Buttons
+@btn-border-radius-base: 0.4rem;
+@btn-shadow: none;
+
+.login-issue-modal {
+  .ant-modal-header {
+    background-color: rgba(241, 241, 241, 0.8);
+    border-radius: 0px;
+    img {
+      width: 13.75rem;
+      margin-left: 0.9375rem;
+    }
+  }
+  .ant-modal-footer {
+    padding: 0;
+    button {
+      background-color: #ea5323;
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+      padding: 0.9375rem;
+    }
+  }
+}
