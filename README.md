@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## dependencies
 
 1. ng-zorro : For design pattern and better UI experience
-2. ngxs: This store management used for Consistency and Maintainability. It helps us to make development faster.
+2. ngxs: This store management, is used for stability and maintenance. This helps to accelerate development.
 
 ## Development server
 
