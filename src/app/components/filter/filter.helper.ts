@@ -22,13 +22,7 @@ export class FilterProductsDataHelper {
     return this.productsDataState.productsData?.reduce(
       (prev: IProductsData[], current) => {
         columns.map((element) => {
-          if (this._isContains(filterFields, current, element)) {
-            return prev.push(current);
-          } else if (this._isEqualTo(filterFields, current, element)) {
-            return prev.push(current);
-          } else if (this._startsWith(filterFields, current, element)) {
-            return prev.push(current);
-          } else if (this._endsWith(filterFields, current, element)) {
+          if (this._filter(filterFields, current, element)) {
             return prev.push(current);
           } else {
             return;
@@ -40,58 +34,35 @@ export class FilterProductsDataHelper {
     );
   }
 
-  private _isContains(
+  private _filter(
     filterFields: IFilter,
     currentArray: IProductsData,
     element: string
   ): boolean {
     return (
-      (filterFields.selectedOperators?.includes(FilterOperatorsEnum.Contains) ||
+      ((filterFields.selectedOperators?.includes(
+        FilterOperatorsEnum.Contains
+      ) ||
         !filterFields.selectedOperators) &&
-      currentArray[element as keyof IProductsData]
-        .toString()
-        .toLowerCase()
-        .includes(filterFields.textValue?.toString().toLowerCase())
-    );
-  }
-
-  private _isEqualTo(
-    filterFields: IFilter,
-    currentArray: IProductsData,
-    element: string
-  ): boolean {
-    return (
-      filterFields.selectedOperators?.includes(FilterOperatorsEnum.IsEqualTo) &&
-      currentArray[element as keyof IProductsData].toString() ===
-        filterFields.textValue?.toString()
-    );
-  }
-
-  private _startsWith(
-    filterFields: IFilter,
-    currentArray: IProductsData,
-    element: string
-  ): boolean {
-    return (
-      filterFields.selectedOperators?.includes(
+        currentArray[element as keyof IProductsData]
+          .toString()
+          .toLowerCase()
+          .includes(filterFields.textValue?.toString().toLowerCase())) ||
+      (filterFields.selectedOperators?.includes(
+        FilterOperatorsEnum.IsEqualTo
+      ) &&
+        currentArray[element as keyof IProductsData].toString() ===
+          filterFields.textValue?.toString()) ||
+      (filterFields.selectedOperators?.includes(
         FilterOperatorsEnum.StartsWith
       ) &&
-      currentArray[element as keyof IProductsData]
-        .toString()
-        .startsWith(filterFields?.textValue?.toString())
-    );
-  }
-
-  private _endsWith(
-    filterFields: IFilter,
-    currentArray: IProductsData,
-    element: string
-  ): boolean {
-    return (
-      filterFields.selectedOperators?.includes(FilterOperatorsEnum.EndsWith) &&
-      currentArray[element as keyof IProductsData]
-        .toString()
-        .endsWith(filterFields?.textValue?.toString())
+        currentArray[element as keyof IProductsData]
+          .toString()
+          .startsWith(filterFields?.textValue?.toString())) ||
+      (filterFields.selectedOperators?.includes(FilterOperatorsEnum.EndsWith) &&
+        currentArray[element as keyof IProductsData]
+          .toString()
+          .endsWith(filterFields?.textValue?.toString()))
     );
   }
 }

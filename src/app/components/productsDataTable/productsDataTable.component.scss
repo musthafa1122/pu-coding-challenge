@@ -2,14 +2,14 @@
   height: 78vh !important;
 }
 
-tr > th,
-table > tbody > tr > td {
-  text-align: center !important;
+thead > tr > .table-th,
+tbody > tr > .table-td {
+  text-align: center;
 }
 
-thead > tr > th {
-  background-color: #001529 !important;
-  color: white !important;
+thead > tr > .table-th {
+  background-color: #001529;
+  color: white;
 }
 
 .table-count {

@@ -13,7 +13,7 @@
     >
       <nz-option
         *ngFor="let option of productsDataState?.productsDataHeaders"
-        [nzLabel]="option"
+        [nzLabel]="option | titlecase | tableHeader"
         [nzValue]="option"
       ></nz-option>
     </nz-select>

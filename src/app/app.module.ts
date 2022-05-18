@@ -24,6 +24,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { FilterProductsDataHelper } from './components/filter/filter.helper';
+import { TableHeaderPipe } from './pipes/table-header.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,14 @@ import { FilterProductsDataHelper } from './components/filter/filter.helper';
     ProductsDataTableComponent,
     FilterComponent,
     ProductsDataTablePage,
+    TableHeaderPipe,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
     NgxsModule.forRoot([ProductsDataState]),
     NgxsSelectSnapshotModule.forRoot(),
     NgxsDispatchPluginModule.forRoot(),
